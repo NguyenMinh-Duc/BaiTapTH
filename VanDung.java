@@ -2,48 +2,49 @@ package Phan3;
 
 import java.util.Scanner;
 
-public class VanDung {
-	public String hoTen;
-	public String diaChi;
-	public int namSinh;
-	public String getHoTen() {
-		return hoTen;
-	}
-	public void setHoTen(String hoTen) {
-		this.hoTen = hoTen;
-	}
-	public String getDiaChi() {
-		return diaChi;
-	}
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
-	public int getNamSinh() {
-		return namSinh;
-	}
-	public void setNamSinh(int tuoi) {
-		this.namSinh = namSinh;
-	}
-	public void nhapTT() {
-		Scanner	Input = new Scanner(System.in);
-		System.out.println("Nhập họ tên: ");
-		this.hoTen =Input.nextLine();
-		System.out.println("Nhập địa chỉ: ");
-		this.diaChi =Input.nextLine();
-		System.out.println("Nhập năm sinh:");
-		this.namSinh=Input.nextInt();
-		Input.nextLine();
-	}
-	public void inTT() {
+public class VanDung extends ToanHoc {
+public static void main(String[] args) {
 		
-		System.out.println("Thông tin người: ");
-		System.out.println("Ten: " + this.getHoTen());
-		System.out.println("Địa chỉ: "+ this.getDiaChi());
-		System.out.println("Năm sinh: "+ this.getNamSinh());
-	}
-	public static void main(String[] args) {
-		VanDung fVanDung = new VanDung();
-		fVanDung.nhapTT();
-		fVanDung.inTT();
+		ToanHoc fToanHoc = new ToanHoc();
+		
+		//1 Kiem tra so nguyen to
+		if(fToanHoc.kiemtraNguyenTo(19)) {
+			System.out.println("k la so nguyen to");
+		}else {
+			System.out.println("k không la so nguyen to");
+		}
+		
+		//2 Kiem tra so hoan hao
+		if(fToanHoc.kiemtraHoanHao(12)) {
+			System.out.printf(" n la so hoan hao");
+		}else {
+			System.out.println("n không la hoan hao");
+		}
+		
+		//3 Kiem tra so chinh phuong
+		if(fToanHoc.kiemtraSoChinhPhuong(4)) {
+			System.out.println("a la so chinh phuong");
+		}else {
+			System.out.println("a khong la so chinh phuong");
+		}
+		
+		//4 Tinh so fibonaci thu n voi CT
+		/* 
+		 * Ln = 2 nếu n = 0
+		 * Ln=1 nếu n = 1
+		 *L(n-1)+L(n-2) nếu n>1 */
+		System.out.printf("So fibonaci thu n la %d ",tinhFibo(3));
+		
+		//B5: tinh tong S = 1/2 +2/3 +...+ n-1/n
+		System.out.printf("\ntong S = 1/2 +2/3 +...+ n-1/n la  " + tinhTongb5(4));
+		
+		//B6: tinh tong day S = 1!/(x+k) +2!/(x^2-k^2) +...+ n!/(x^n+ (-1)^(n+1)*k^n)
+		System.out.printf("\ntong day S = 1!/(x+k) +2!/(x^2-k^2) +...+ n!/(x^n+ (-1)^(n+1)*k^n) là " + tinhTongb6(3,1,2));
+		//B7: tinh tong day S = 1 + 2 -3 + .... + (-1)^(n+1) *n
+		System.out.printf("\ntong day S = 1 + 2 -3 + .... + (-1)^(n+1) *n là " + tinhTongb7(5));
+		//B8: tinh tong day S = 1!+ 2!+ 3! +...+ n!
+		System.out.printf("\ntong day S = 1!+ 2!+ 3! +...+ n! là " + tinhTongb8(5));
 	}
 }
+
+
